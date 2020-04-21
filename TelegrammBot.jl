@@ -4,7 +4,7 @@ using Telegrambot
 
 function binance(symbol::AbstractString)
     u = "https://api.binance.com/api/v3/ticker/price?symbol="
-    url = u .* symbol
+    url = u .* uppercase(symbol)
     try
         res = HTTP.get(url)
         r = JSON.parse(String(res.body))
