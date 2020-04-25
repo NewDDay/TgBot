@@ -1,6 +1,7 @@
 using HTTP
 using JSON
 using Telegrambot
+include("../PrivateAPIBinance/Binance.jl")
 
 function binance(symbol::AbstractString)
     u = "https://api.binance.com/api/v3/ticker/price?symbol="
@@ -36,7 +37,8 @@ end
 
 botApi = "1214087210:AAFqZ9gtQC_OmtOrUxRZ_tRikCC-RTIP9mk"
 txtCmds = Dict()
-txtCmds["start"] = welcomeMessage # this will respond to '/start'
-txtCmds["price"] = output # this will respond to '/repeatmessage <any thing>'
-inlineOpts = Dict() #Title, result pair
+txtCmds["start"] = welcomeMessage
+txtCmds["price"] = output
+txtCmds["balance"] = balance
+inlineOpts = Dict()
 startBot(botApi; textHandle = txtCmds, inlineQueryHandle = inlineOpts)
