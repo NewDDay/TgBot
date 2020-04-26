@@ -1,7 +1,7 @@
 using HTTP
 using JSON
 using Telegrambot
-include("../PrivateAPIBinance/Binance.jl")
+include("/home/Rose/GitHub/PrivateAPIBinance/Binance.jl")
 
 function binance(symbol::AbstractString)
     u = "https://api.binance.com/api/v3/ticker/price?symbol="
